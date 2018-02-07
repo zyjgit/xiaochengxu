@@ -1,0 +1,30 @@
+<view class='box'>
+  <view class='border'>
+    <text class="dis-b line-h">订单提交成功，请您尽快付款！</text>
+    <text class="dis-b line-h">请您在提交订单后24小时内完成支付，否则订单会自动取消</text>
+  </view>
+  <view>
+    <view class='border line-h'>
+      <text>选择支付方式</text>
+      <text class='fr'>{{payAmount}}元</text>
+    </view>
+
+    <view>
+      <label class="dis-b border line-h">
+        <checkbox value="weChatPay" checked="checked" disabled='{{false}}'/>微信支付
+      </label>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="dis-b  line-h">
+          <checkbox value="on" />使用余额（账户当前余额{{balance}}元）
+        </label>
+        <label class="dis-b border line-h">
+          <text>支付密码：</text>
+          <input value="{{balancePassword}}" placeholder="{{address.memberName}}" bindinput="bindPay" />
+        </label>
+      </checkbox-group>
+    </view>
+  </view>
+  <view>
+    <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" bindtap="payMent" hover-class="other-button-hover"> 立即支付 </button>
+  </view>
+</view>

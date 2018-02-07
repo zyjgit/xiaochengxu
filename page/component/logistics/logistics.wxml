@@ -1,0 +1,156 @@
+<view>
+
+  <view class="newest-list">
+    <view>订单号：{{orderDetail.orderSn}}</view>
+    <view>
+      <span>订单类型：</span>
+      <span wx:if="{{orderDetail.orderType==1}}">
+        商城订单
+      </span>
+      <span wx:if="{{orderDetail.orderType==2}}">
+        限时抢购订单
+      </span>
+      <span wx:if="{{orderDetail.orderType==3}}">
+        团购订单
+      </span>
+      <span wx:if="{{orderDetail.orderType==4}}">
+        竞价定金订单
+      </span>
+      <span wx:if="{{orderDetail.orderType==5}}">
+        竞价尾款订单
+      </span>
+      <span wx:if="{{orderDetail.orderType==6}}">
+        积分商城订单
+      </span>
+    </view>
+    <view>
+      <span>订单状态：</span>
+      <span wx:if="{{orderDetail.orderState==1}}">
+        未付款订单
+      </span>
+      <span wx:if="{{orderDetail.orderState==2}}">
+        待确认
+      </span>
+      <span wx:if="{{orderDetail.orderState==3}}">
+        待发货
+      </span>
+      <span wx:if="{{orderDetail.orderState==4}}">
+        已发货
+      </span>
+      <span wx:if="{{orderDetail.orderState==5}}">
+        已完成
+      </span>
+      <span wx:if="{{orderDetail.orderState==6}}">
+        已取消
+      </span>
+    </view>
+    <view>下单时间{{orderDetail.createTime}}</view>
+    <!-- <view wx:if="{{orderDetail.orderState==1}}">
+      <button wx:if="{{orderDetail.orderType!=5}}" type="default" size="{{default}}" class='btn' bindtap="default" hover-class="other-button-hover"> 取消订单 </button>
+      <button type="default" size="{{default}}" class='btn' bindtap="goPay" hover-class="other-button-hover"> 去付款 </button>
+    </view>
+    <view wx:if="{{orderDetail.orderState==2}}">
+      <button wx:if="{{orderDetail.orderType!=5}}" type="default" size="{{default}}" class='btn' bindtap="default" hover-class="other-button-hover"> 取消订单 </button>
+    </view>
+    <view wx:if="{{orderDetail.orderState==3}}">
+      <button wx:if="{{orderDetail.orderType!=5}}" type="default" size="{{default}}" class='btn' bindtap="default" hover-class="other-button-hover"> 取消订单 </button>
+    </view>
+    <view wx:if="{{orderDetail.orderState==4}}">
+      <button type="default" size="{{default}}" class='btn' bindtap="default" hover-class="other-button-hover"> 确认收货 </button>
+    </view>
+    <view wx:if="{{orderDetail.orderState==5}}">
+      <button wx:if="{{orderDetail.orderType!=4}}" type="default" size="{{default}}" class='btn' bindtap="default" hover-class="other-button-hover"> 评价晒单 </button>
+      <button wx:if="{{orderDetail.orderType!=4}}" type="default" size="{{default}}" class='btn' bindtap="default" hover-class="other-button-hover"> 申请退换货 </button>
+    </view>
+    <view wx:if="{{orderDetail.orderState==6}}">
+    </view> -->
+  </view>
+
+  <view class="order-logistics">
+    <view wx:for="{{orderDetail.orderProductList}}" wx:key="{{index}}">
+      <view class="clearFix order-conter box">
+        <navigator url="../details/details?id={{item.id}}" class='pic'>
+          <image src="{{item.productLeadLittle}}" class='tu fl'></image>
+        </navigator>
+        <view class="fr order-prise">
+          <text class="fl order-text">{{item.productName}}</text>
+          <text>￥{{item.moneyPrice}}</text>
+          <text>X{{item.number}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="address-left">
+      <text>{{orderDetail.name}}</text>
+      <text>{{orderDetail.mobile}}</text>
+      <text>{{orderDetail.addressAll}} {{orderDetail.addressInfo}}</text>
+    </view>
+    <view class='box'>
+      <view class='order-list clearFix'>
+        <text class='fl'>付款方式：</text>
+        <text class="fr" wx:if="{{orderDetail.paymentStatus==1}}">{{orderDetail.paymentName}}</text>
+        <text class="fr" wx:if="{{orderDetail.paymentStatus!=1}}">未付款</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>商品金额：</text>
+        <text class="fr">+ ￥{{orderDetail.moneyProduct}}</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>运费：</text>
+        <text class="fr">+ ￥{{orderDetail.moneyLogistics}}</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>优惠总额：</text>
+        <text class="fr">- ￥{{orderDetail.moneyDiscount}}</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>积分支付</text>
+        <text class="fr">- ￥{{orderDetail.moneyIntegral}}</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>余额支付</text>
+        <text class="fr">- ￥{{orderDetail.moneyPaidBalance}}</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>现金支付</text>
+        <text class="fr">- ￥{{orderDetail.moneyPaidReality}}</text>
+      </view>
+      <view class='order-list clearFix'>
+        <text class='fl'>订单金额</text>
+        <text class="fr">￥{{orderDetail.moneyOrder}}</text>
+      </view>
+
+    </view>
+  </view>
+  <view class='box'>
+    <view class='order-list clearFix'>配送信息</view>
+    <view class='order-list clearFix'>
+      <text class='fl'>配送方式：{{orderDetail.logisticsName}}</text>
+    </view>
+    <view class='order-list clearFix'>
+      <text class='fl'>快递单号：{{orderDetail.logisticsNumber}}</text>
+    </view>
+    <view class='order-list clearFix'>
+      <text class='fl'>发货时间：{{orderDetail.deliverTime}}</text>
+    </view>
+    <view class='order-list clearFix' wx:for="{{logistics}}" wx:key="{{index}}">
+      <view>{{item.createTime}}</view>
+      <view>{{item.content}}</view>
+    </view>
+  </view>
+  <view class='box'>
+    <view class='order-list clearFix'>发票信息</view>
+    <view class='order-list clearFix'>
+      <view wx:if="{{orderDetail.invoiceStatus==0}}">发票类型:不要发票</view>
+      <view wx:if="{{orderDetail.invoiceStatus==1}}">
+        <text>发票类型:单位</text>
+        <text>发票抬头:{{orderDetail.invoiceTitle}}}</text>
+        <text>发票内容:{{orderDetail.invoiceType}}}</text>
+      </view>
+      <view class='fl' wx:if="{{orderDetail.invoiceStatus==2}}">
+        <text>发票类型:个人</text>
+        <text>发票抬头:{{orderDetail.invoiceTitle}}}</text>
+        <text>发票内容:{{orderDetail.invoiceType}}}</text>
+      </view>
+    </view>
+  </view>
+</view>

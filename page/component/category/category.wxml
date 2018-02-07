@@ -1,0 +1,40 @@
+<view class="main">
+  <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+    <view id="green" class="swiper-tab-list {{currentTab==399 ? 'on' : ''}}" bindtap="clicktap" data-val="399">生鲜肉类</view>
+    <view id="green" class="swiper-tab-list {{currentTab==618 ? 'on' : ''}}" bindtap="clicktap" data-val="618">营养滋补</view>
+    <view id="green" class="swiper-tab-list {{currentTab==450 ? 'on' : ''}}" bindtap="clicktap" data-val="450">熟食肠类</view>
+    <view id="green" class="swiper-tab-list {{currentTab==404 ? 'on' : ''}}" bindtap="clicktap" data-val="404">零食速食</view>
+    <view id="green" class="swiper-tab-list {{currentTab==394 ? 'on' : ''}}" bindtap="clicktap" data-val="394">水果蔬菜</view>
+    <view id="green" class="swiper-tab-list {{currentTab==397 ? 'on' : ''}}" bindtap="clicktap" data-val="397">蛋奶营养</view>
+    <view id="green" class="swiper-tab-list {{currentTab==447 ? 'on' : ''}}" bindtap="clicktap" data-val="447">茶饮冲泡</view>
+    <view id="green" class="swiper-tab-list {{currentTab==402 ? 'on' : ''}}" bindtap="clicktap" data-val="402">海鲜水产</view>
+    <view id="green" class="swiper-tab-list {{currentTab==403 ? 'on' : ''}}" bindtap="clicktap" data-val="403">粮油副食</view>
+  </scroll-view>
+  <scroll-view class="categroy-content" bindchange="bindChange" scroll-y="{{isScroll}}" scroll-into-view="{{toView}}" scroll-with-animation="true">
+    <scroll-view scroll-y style="height:100%;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class="scroll-view-item">
+        <view class="newest-list">
+          <view class="newest-list" wx:for="{{goodsList}}" wx:key="{{index}}" data-val="">
+
+            <navigator url="../details/details?refId={{item.id}}" class='clearFix'>
+              <image src="{{item.masterImg}}"></image>
+              <view class="product-right">
+                <view class="newest-text">{{item.name1}}</view>
+                <view class="newest-text">销量
+                  <text>{{item.actualSales}}</text>
+                  <!-- 规格 <text>500g</text> -->
+                </view>
+                <view class="product-text">{{item.name2}}</view>
+                <view class="price">￥
+                  <text>{{item.malMobilePrice}}</text>
+                  <!-- <view class="addCart"><image src="../../../image/photo.png"></image></view> -->
+                </view>
+              </view>
+            </navigator>
+          </view>
+
+        </view>
+      </view>
+    </scroll-view>
+  </scroll-view>
+</view>

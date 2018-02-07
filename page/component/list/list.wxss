@@ -1,0 +1,40 @@
+@import '../../common/common.wxss';
+/* .list-box{
+   
+} */
+.newest-list{
+    display: inline-block;
+    width:95%;
+    margin-top:15rpx;
+    padding:10rpx 20rpx;
+    border-bottom:20rpx solid #eee
+}
+.newest-list image{
+    width: 100rpx;
+    height: 100rpx;
+    margin-right:10rpx
+}
+.newest-list .newest-text{
+    font-size: 28rpx;
+}
+.newest-imag{
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  padding:10rpx;
+  margin:10rpx 0;
+}
+.order-style{
+  overflow: hidden
+}
+.fl-img{
+width:20%;
+float:left;
+}
+.fl-detail{
+width:80%;
+float:left;
+margin-top:5px;
+}
+.m-r{
+  margin-right:20rpx;
+}

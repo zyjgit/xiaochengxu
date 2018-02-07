@@ -1,0 +1,19 @@
+<view>
+  <view class='order-style' wx:for="{{orderDetail}}" wx:key="{{index}}">
+    <view class="fl-img">
+      <navigator url="../details/details?id={{items.id}}">
+        <image class="cart-thumb" src="{{item.productLeadLittle}}"></image>
+      </navigator>
+    </view>
+    <view class="fr-detail">
+      <text class="cart-pro-name">{{item.productName}}</text>
+      <view>
+        <text class="cart-pro-name">购买时间:{{item.createTime}}</text>
+        <text bindtap="serviceSelection">我要评价</text>
+      </view>
+    </view>
+    <view class="{{isChecked?'dis-b':'dis-n'}}">
+      nihao
+    </view>
+  </view>
+</view>

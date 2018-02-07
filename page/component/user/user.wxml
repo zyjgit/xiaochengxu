@@ -1,0 +1,23 @@
+<view class="main">
+    <view class="main-warpper">
+      <view class="header">
+        <image src="{{thumb}}" class="thumb"></image> 
+        <text class="nickname">{{nickname}}</text>
+      </view>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="/page/component/addressList/addressList">地址管理</navigator>
+        </view>
+    </view>
+    <view class="address-box">
+        <view class="address-manage">
+            <navigator url="/page/component/cart/cart">我的购物车</navigator>
+        </view>
+    </view>
+    <view class="orders-box">
+        <view class="orders" >
+        <navigator url="/page/component/list/list">我的订单</navigator>
+        </view>
+    </view>
+</view>

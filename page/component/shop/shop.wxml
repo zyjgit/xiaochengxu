@@ -1,0 +1,64 @@
+<view class="main">
+  <view wx:if="{{banners.length!=0}}">
+     <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+      <block wx:for="{{banners}}" wx:key="{{index}}">
+        <swiper-item wx:if="{{item.linkU=='product'}}">
+           <navigator url='../details/details?refId={{item.linkId}}' class='banner-img'> 
+            <image src="{{item.image1}}" class="slide-image" width="100%" />
+           </navigator> 
+        </swiper-item>
+        <swiper-item wx:else>
+           <navigator url='shop/shop?linkId={{item.linkId}}' class='banner-img'> 
+            <image src="{{item.image1}}" class="slide-image" width="100%" />
+           </navigator> 
+        </swiper-item>
+      </block>
+    </swiper> 
+  </view>
+  <view class='flexBox'>
+    <text class='flexL'>{{seller.sellerName}}</text>
+    <text class='flexR'>收藏店铺</text>
+  </view>
+  <view class='flexBox'>
+    <view class='flexL'>
+      商品描述：
+      <text class="price">{{seller.scoreDescription}}</text>
+    </view>
+    <view class='flexR'>
+      服务态度：
+      <text class="price">{{seller.scoreService}}</text>
+    </view>
+  </view>
+  <view class='flexBox'>
+    <view class='flexL'>
+      发货速度：
+      <text class="price">{{seller.scoreDeliverGoods}}</text>
+    </view>
+    <view class='flexR'>
+      关注：
+      <text class="price">{{seller.collectionNumber}}</text>
+    </view>
+  </view>
+
+  <view wx:for="{{shopList}}" wx:key="id">
+    <view class="newest">
+      <view class="newest-box">
+        <view class="newest-list" wx:key="id">
+          <navigator url="../details/details?refId={{item.refId}}">
+            <image src="{{item.product.master1Img}}"></image>
+            <view class="product-right">
+              <view class="newest-text">{{item.product.name1}}</view>
+              <view class="product-text">{{item.product.name2}}</view>
+              <view class="price">
+                ￥
+                <text>{{item.product.malMobilePrice}}</text>
+                市场价：
+                <text>{{item.product.marketPrice}}</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

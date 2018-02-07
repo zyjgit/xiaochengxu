@@ -1,0 +1,46 @@
+<view class="main">
+  <view class="goods-box">
+    <image src="{{goods.masterImg}}" class="goods-thumb" wx:if="{{goods.productPicture}}"></image>
+    <view class="goods-title">{{goods.name1}}</view>
+    <view class="goods-detail">{{goods.name2}}</view>
+    <view class="goods-price">￥ {{goods.malMobilePrice}}</view>
+  </view>
+  <!-- <view class="goods-tab-box">
+        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
+        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
+        <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
+        <view class="goods-content">
+            <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
+            <view wx:if="{{curIndex === 1}}">{{goods.parameter}}</view>
+            <view wx:if="{{curIndex === 2}}">{{goods.service}}</view>
+        </view>
+    </view> -->
+  <view class="detail-list">
+    <view class="">库存：
+      <text>{{goods.productStock}}</text>
+    </view>
+    <view class="">规格：
+      <text>{{goods.productStock}}</text>
+    </view>
+    <view class="">销售：
+      <text>{{goods.actualSales}}</text>
+    </view>
+    <view class="">商家：
+      <text>{{goods.sellerName}}</text>
+    </view>
+  </view>
+  <view class="detail-pic">
+    <block wx:if="{{goods.productPicture}}" wx:for="{{goods.productPicture}}" wx:key="{{index}}">
+      <image src="{{item}}" mode="widthFix"></image>
+    </block>
+  </view>
+</view>
+<view class="footTab">
+  <view class="Collection fl" bindtap="urlCart">
+    <view class="classname">
+      <image src="../../../image/32.png"></image>
+    </view>
+    <text>购物车</text>
+  </view>
+  <view class="addCart fl" bindtap="addCart">加入购物车</view>
+</view>

@@ -1,0 +1,47 @@
+<view class="main">
+  <view wx:if="{{address==''||address==null?false:true}}" class="orders-address">
+    <navigator url="../addressList/addressList">
+      <text class="orders-address-name">收货人: {{address.memberName}}</text>
+      <text class="orders-address-phone">电话: {{address.mobile}}</text>
+      <view class="orders-address-detail">{{address.addAll}}{{address.addressInfo}}</view>
+    </navigator>
+  </view>
+  <view wx:else class="orders-no-address">
+    <navigator url="../address/address">
+      添加收货地址
+    </navigator>
+  </view>
+  <view class="orders-box">
+    <view wx:for="{{orders}}" wx:key="index" class="orders-list">
+      <view class="busname">
+        {{item.busname}}
+      </view>
+      <view class="cart-content-list" wx:for="{{item.cartList}}" wx:for-item="items" wx:key="{{index}}">
+        <view class="fl pro-name">
+          <image class="orders-thumb fl" src="{{items.product.master1Img}}"></image>
+          <view class="fl order-pro-mass">
+            <view class="orders-pro-name">{{items.product.name1}}</view>
+            <view class="orders-pro-price">￥{{items.product.malMobilePrice}}</view>
+            <view class="orders-count-num">×{{items.count}}</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="Subtotal-list">
+      <view class="">
+        <text class="fl">运费</text>
+        <text class="fr">￥{{logisticsFeeAmount}}</text>
+      </view>
+      <view>
+        <text class="fl">合计：</text>
+        <text class="fr">￥{{cartAmount}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="orders-footer">
+    <view class="orders-footer-total">付款合计：￥{{cartAmount}}</view>
+    <view class="orders-footer-btn" bindtap="toPay">去付款</view>
+  </view>
+</view>

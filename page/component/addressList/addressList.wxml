@@ -1,0 +1,36 @@
+<view class="fl content">
+  <view class="address fl" wx:if="{{item.state==1}}" wx:for="{{addressList}}" wx:key="{{index}}">
+    <view class="address-left fl">
+      <text>{{item.memberName}} {{item.mobile}}</text>
+      <text>地址：{{item.addAll}}{{item.addressInfo}}</text>
+    </view>
+    <view class="address-right fr">
+      <button size="mini" bindtap="deleteList" data-text="{{index}}">删除</button>
+      <view class="default">
+        <navigator url="../editAddress/editAddress?id={{item.id}}">
+          <button size="mini" bindtap="default" data-text="Y">编辑</button>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{item.state==2}}" class="address fl" wx:for="{{addressList}}" wx:key="{{index}}">
+    <view class="address-left fl">
+      <text>{{item.memberName}} {{item.mobile}}</text>
+      <text>地址：{{item.addAll}}{{item.addressInfo}}</text>
+    </view>
+    <view class="address-right fr">
+      <button size="mini" bindtap="deleteList" data-index="{{index}}">删除</button>
+      <view class="default">
+        <navigator url="../editAddress/editAddress?id={{item.id}}">
+          <button size="mini"  data-text="Y">编辑</button>
+        </navigator>
+      </view>
+      <view class="default">
+        <button size="mini" bindtap="default" data-text="Y" data-index="{{index}}">默认</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="addBtn fl">
+  <button bindtap="addsubmit" class="but">添加新地址</button>
+</view>

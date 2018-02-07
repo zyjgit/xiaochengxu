@@ -1,0 +1,19 @@
+.dis-b{
+  display:block
+}
+.box{
+  width:95%;
+  margin:0 auto;
+  }
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+.border{
+  border-bottom:1px solid #dedede;
+}
+.line-h{
+  line-height: 80rpx;
+}

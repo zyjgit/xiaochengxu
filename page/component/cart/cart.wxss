@@ -1,0 +1,139 @@
+@import '../../common/common.wxss';
+
+.cart-box{
+    padding-bottom: 100rpx;
+}
+.cart-list{
+    position: relative;
+    /* padding: 20rpx 20rpx 20rpx 285rpx; */
+}
+.cart-list .cart-pro-select{
+    /* position: absolute;
+    left: 20rpx;
+    top: 90rpx; */
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.cart-list .cart-thumb{
+    /* position: absolute;
+    top: 20rpx;
+    left: 85rpx; */
+    width: 185rpx;
+    height: 185rpx;
+}
+.cart-list .cart-pro-name{
+    display: block;
+    line-height: 50rpx;
+    overflow: hidden;
+}
+.item-title{
+  background:#dedede;
+  line-height: 80rpx;
+  padding-left:20rpx
+}
+
+.select-pro{
+  line-height: 200rpx;
+  width:55rpx
+}
+
+.cart-content-list{
+  width:95%;
+  margin:0 auto;
+ overflow: hidden;
+}
+.pro-pri{
+  border-top:1rpx solid #999;
+  width:100%;
+  line-height: 68rpx;
+  color:#f15353;
+}
+
+
+
+.cart-pro-allnum{
+  font-size:25rpx
+}
+.cart-list .cart-pro-price{
+    display: inline-block;
+    line-height: 50rpx;
+}
+.cart-list .cart-count-box{
+    width: 355rpx;
+    height: 80rpx;
+}
+.cart-list .cart-count-box text{
+    display: inline-block;
+    line-height: 80rpx;
+    text-align: center;
+}
+.cart-count-down,.cart-count-add{
+    font-size: 44rpx;
+    width: 50rpx;
+    height: 100%;
+}
+.cart-count-num{
+    width: 70rpx;
+}
+.cart-del{
+    /* position: absolute;
+    right: 20rpx;
+    bottom: 20rpx; */
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 80rpx;
+    font-size: 44rpx;
+    margin:13rpx 0 0 40rpx
+}
+.cart-del image{
+  width:100%;
+  height:100%;
+}
+.cart-footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    box-sizing: border-box;
+    color: #fff;
+}
+.all-Settlement{
+  width:420rpx;
+  float:left;
+  background:#000;
+  color:#fff;
+}
+.Settlement{
+  float:right;
+  background:#f15353;
+  color:#fff;
+  width: 330rpx;
+  text-align: center
+}
+.cart-footer text,.cart-footer navigator{
+  font-size:28rpx
+}
+.total-select{
+    width: 45rpx;
+    height: 45rpx;
+    margin:20rpx 10rpx
+}
+.order-icon{
+    width: 45rpx;
+    height: 45rpx;
+    background-image: url(/image/icon3.png);
+    background-size: 100%;
+}
+.cart-toatl-price{
+    float: right;
+    margin-right:10rpx
+}
+
+.cart-no-data{
+    padding:40rpx 0;
+    color: #999;
+    text-align: center;
+}

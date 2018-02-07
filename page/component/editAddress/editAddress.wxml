@@ -1,0 +1,35 @@
+<view class="main">
+  <view class="form-box">
+    <form bindsubmit="formSubmit">
+      <input name="memberName" value="{{address.memberName}}" placeholder="{{address.memberName}}" bindinput="bindName" />
+      <input name="phone" type="number" value="{{address.phone}}" placeholder="手机号码" bindinput="bindPhone" />
+      <view class="section">
+        <view class="section__title">省份</view>
+        <picker bindchange="provinceChange" value="{{indexP}}" range="{{provinces}}" range-key="{{'regionName'}}">
+          <view class="picker" name="provinceId">
+            当前选择：{{provinces[indexP].regionName}}
+          </view>
+        </picker>
+      </view>
+      <view class="section">
+        <view class="section__title">城市</view>
+        <picker bindchange="cityChange" value="{{indexC}}" range="{{citys}}" range-key="{{'regionName'}}">
+          <view class="picker" name="cityId">
+            当前选择：{{citys[indexC].regionName}}
+          </view>
+        </picker>
+      </view>
+      <view class="section">
+        <view class="section__title">区县</view>
+        <picker bindchange="areasChange" value="{{indexA}}" range="{{areas}}" range-key="{{'regionName'}}">
+          <view class="picker" name="areaId">
+            当前选择：{{areas[indexA].regionName}}
+          </view>
+        </picker>
+      </view>
+      <input name="addressInfo" value="{{address.addressInfo}}" placeholder="详细地址" bindinput="bindDetail" />
+      <input name="zipCode" value="{{address.zipCode}}" placeholder="邮编" bindinput="bindZipCode" />
+      <button form-type="submit">保存</button>
+    </form>
+  </view>
+</view>

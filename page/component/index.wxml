@@ -1,0 +1,80 @@
+<view class="main">
+  <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item wx:if="{{item.linkUrl=='product'}}">
+        <navigator url='details/details?refId={{item.linkId}}' class='banner-img'>
+          <image src="{{item.image}}" class="slide-image" width="100%" />
+        </navigator>
+      </swiper-item>
+      <swiper-item wx:else>
+        <navigator url='shop/shop?linkId={{item.linkId}}' class='banner-img'>
+          <image src="{{item.image}}" class="slide-image" width="100%" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- //wx_pay -->
+  <!-- <button bindtap='wx_pay'>点击</button> -->
+  <view class="section section_gap">
+    <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="399">生鲜肉类</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="618">营养滋补</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="450">熟食肠类</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="404">零食速食</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="394">水果蔬菜</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="397">蛋奶营养</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="447">茶饮冲泡</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="402">海鲜水产</view>
+      <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="403">粮油副食</view>
+    </scroll-view>
+  </view>
+  <!-- <view class="section section_gap">
+      <scroll-view class="scroll-view_H" scroll-x style="width: 100%">
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="399">生鲜肉类</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="618">营养滋补</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="450">熟食肠类</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="404">零食速食</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="394">水果蔬菜</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="397">蛋奶营养</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="447">茶饮冲泡</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="402">海鲜水产</view>
+        <view id="green" class="scroll-view-item_H" bindtap="tappro" data-val="403">粮油副食</view>
+      </scroll-view>
+    </view> -->
+
+  <view wx:for="{{goods}}" wx:key="id">
+    <view class="selected">
+      <view class="select-top">
+        <view class="select-top-small">
+          <navigator url="details/details?refId={{item.advLinkUrl}}">
+            <image src="{{item.advImage}}"></image>
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <view class="newest">
+      <view class="newest-box">
+        <view class="newest-list" wx:for="{{item.datas}}" wx:for-item="datas" wx:key="id">
+          <navigator url="details/details?refId={{datas.refId}}">
+            <image src="{{datas.product.masterImg}}"></image>
+            <view class="product-right">
+              <view class="newest-text">{{datas.productName}}</view>
+              <view class="newest-text">
+                销量
+                <text>{{datas.product.actualSales}}</text>
+                <!-- 规格 <text>{{item.parameter}}</text> -->
+              </view>
+              <view class="product-text">{{datas.product.name2}}</view>
+              <view class="price">
+                ￥
+                <text>{{datas.product.malMobilePrice}}</text>
+                <!-- <view class="addCart"><image src="../../image/photo.png"></image></view> -->
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
