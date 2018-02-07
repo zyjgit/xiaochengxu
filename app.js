@@ -60,5 +60,4 @@ App({
     userInfo: null,
   },
    domainUrl: 'https://ehalfresh.4kb.cn/' //本地测试
-  //  domainUrl: 'https://m.ehalfresh.com/' //正式
 })
