@@ -62,4 +62,5 @@ App({
    domainUrl: 'https://ehalfresh.4kb.cn/' //本地测试
    //3453werewr345
    //123123131
+   //不提交密码
 })
